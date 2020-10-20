@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Label{% endblock %}
+
+{% block body %}
+    <h1>Create new Label</h1>
+
+    {{ include('label/_form.html.twig') }}
+
+    <a href="{{ path('label_index', {'id' : team.id}) }}">back to list</a>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    var $sport = $('#label_project');
+
+    $(document).ready(function() {
+        myFunction($sport);
+    });
+
+    // When sport gets selected ...
+    $sport.change(function () {
+        myFunction($sport);
+    });
+
+    function myFunction($context) {
+        // ... retrieve the corresponding form.
+        var $form = $context.closest('form');
+        // Simulate form data, but only include the selected sport value.
+        var data = {};
+        data[$sport.attr('name')] = $sport.val();
+        // Submit data via AJAX to the form's action path.
+        $.ajax({
+            url: $form.attr('action'),
+            type: $form.attr('method'),
+            data: data,
+            success: function (html) {
+                // Replace current position field ...
+                $('#label_codes').replaceWith(
+                    // ... with the returned one from the AJAX response.
+                    $(html).find('#label_codes')
+                );
+                // Position field now displays the appropriate positions.
+            }
+        });
+    }
+</script>
+
+{% endblock %}

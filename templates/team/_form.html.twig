@@ -1,0 +1,10 @@
+{{ form_start(form) }}
+{{ form_row(form.name) }}
+{{ form_row(form.email) }}
+{{ form_row(form.avatar) }}
+{{ form_row(form.slackNotificationPath) }}
+{{ form_row(form.projects) }}
+
+
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

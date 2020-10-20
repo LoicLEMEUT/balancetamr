@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Label index{% endblock %}
+
+{% block body %}
+    <h1>Label index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Project</th>
+                <th>Code</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for label in labels %}
+            <tr>
+                <td>{{ label.team.name }}</td>
+                <td>{{ formatToGitlabProject(label.project) }}</td>
+                <td>
+                    {% for label in formatToGitlabLabel(label) %}
+                        <span style="padding:2px; background-color: {{ label.color }}">{{ label.name }}</span>
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('label_edit', {'id': team.id, 'idLabel': label.id}) }}">edit</a>
+
+                    {{ include('label/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('label_new', {'id': team.id}) }}">Create new</a>
+{% endblock %}

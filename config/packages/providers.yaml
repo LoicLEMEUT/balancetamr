@@ -1,0 +1,15 @@
+parameters:
+    hubside_provider.class: App\Services\Gitlab\Providers\HubsideGitlabProvider
+    actualys_provider.class: App\Services\Gitlab\Providers\ActualysGitlabProvider
+
+services:
+    hubside_provider:
+        class: "%hubside_provider.class%"
+        arguments: {$client: '@zeichen32_gitlabapi.client.hubside'}
+        tags:
+            - { name: 'app.gitlab_providers', alias: hubside }
+    actualys_provider:
+        class: "%actualys_provider.class%"
+        arguments: {$client: '@zeichen32_gitlabapi.client.actualys'}
+        tags:
+            - { name: 'app.gitlab_providers', alias: actualys }

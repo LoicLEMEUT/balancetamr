@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>Hello {{ controller_name }}! ✅</h1>
+
+        <h2>TEAMS</h2>
+
+<div style="display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0;">
+        {% for team in teams %}
+            <div class="row" style="width: 16.5% !important;
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    /* background-color: #1c1e22; */
+    /* border: 1px solid #0c0d0e; */
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    margin: 13px;">
+                <a href="{{ path('mrs_list_by_team', {'id': team.id}) }}">
+                    <img width="200" src="{% if team.avatar %}{{ team.avatar }}{% else %}https://picsum.photos/200{% endif %}">
+                </a>
+                <h2>{{ team.name|e }}</h2>
+            </div>
+        {% endfor %}
+</div>
+
+    </div>
+{% endblock %}

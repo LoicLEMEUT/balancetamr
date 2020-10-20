@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h2>TEAM {{ team.name|e }}</h2>
+
+
+        <div style="display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0;">
+            {% for mr in mrs %}
+                <div class="row" style="width: 10% !important;
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    /* background-color: #1c1e22; */
+    /* border: 1px solid #0c0d0e; */
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    margin: 13px;">
+
+                    <header class="caption text-center ellipsis" title="{{ mr.project_id }}">
+                        <strong>{{ projects[mr.project_id].name }}</strong>
+                    </header>
+                    <svg class="img-circle" width="100px" height="100px" viewBox="0 0 100 100" style="margin: auto;    display: block;">
+                        <circle cx="50" cy="50" r="60" fill="transparent" stroke-width="40"
+                                stroke="#{{ mr.merge_status == 'can_be_merged' ? "090" : "900" }}"></circle>
+                        <image x="10%" y="10%" width="80%" height="80%" xlink:href="{{ mr.author.avatar_url }}"
+                               style="clip-path: circle(50%);" alt="{{ mr.author.name }}"></image>
+                    </svg>
+                    <div class="text-center" style="font-size: 10px;">{{ mr.author.name }}</div>
+                    <div class="text-center github-title ellipsis" title="Update README.md">{{ mr.title }}</div>
+
+                    <div class="caption text-center" style="font-size: 36px;padding:0px">
+                        {{ mr.upvotes }}<span style="color: green;">👍</span>
+                        {{ mr.downvotes }}<span style="color: red;">👎</span>
+                    </div>
+                    <div class="text-center" style="font-size: 20px;padding:0px">
+                        {{ mr.user_notes_count }} 💬
+                    </div>
+                    <!-- LABELS -->
+                    {% for label in mr.labels %}
+                        <div class="github-label text-center ellipsis" title="bug"
+                             style="color: white; background: {{ label.color ?? '#ccc' }};">
+                            {{ label.name }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

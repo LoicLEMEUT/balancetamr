@@ -1,0 +1,10 @@
+zeichen32_git_lab_api:
+    clients:
+        hubside:
+            token: '%env(string:GITLAB_TOKEN_HUBSIDE)%'
+            url: '%env(string:GITLAB_API_HUBSIDE)%'
+            auth_method: http_token
+        actualys:
+            token: '%env(string:GITLAB_TOKEN_ACTUALYS)%'
+            url: '%env(string:GITLAB_API_ACTUALYS)%'
+            auth_method: http_token
