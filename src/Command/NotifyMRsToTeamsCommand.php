@@ -13,8 +13,10 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class NotifyMRsToTeamsCommand extends Command
 {
+    public const WELCOME_MESSAGE = "Liste des MergeRequests en attente de l'équipe: %s";
 
     protected static $defaultName = 'notify:mrs-to-teams';
+
     /**
      * @var TeamManager
      */
@@ -46,11 +48,11 @@ class NotifyMRsToTeamsCommand extends Command
     {
         // Hubside Template
         $hubsideStyle = new OutputFormatterStyle('magenta', 'black', array('bold', 'blink'));
-        $output->getFormatter()->setStyle('hubside', $hubsideStyle);
+        $output->getFormatter()->setStyle('mrnotify', $hubsideStyle);
 
-        $output->writeln("\n" . '<hubside>------------------------------------</hubside>');
-        $output->writeln('<hubside>--- MR en attente ----</hubside>');
-        $output->writeln('<hubside>------------------------------------</hubside>');
+        $output->writeln("\n" . '<mrnotify>------------------------------------</mrnotify>');
+        $output->writeln('<mrnotify>--- MR en attente ----</mrnotify>');
+        $output->writeln('<mrnotify>------------------------------------</mrnotify>');
 
 
         foreach ($this->teamManager->getAllTeams() as $team) {
@@ -58,7 +60,7 @@ class NotifyMRsToTeamsCommand extends Command
                 $slackMrs = [];
                 $projectsGitlab = $this->teamManager->getProjectsByTeam($team);
 
-                $output->writeln("\n" . '<hubside>-------- TEAM ' . $team->getName() . '------</hubside>');
+                $output->writeln("\n" . '<mrnotify>-------- TEAM ' . $team->getName() . '------</mrnotify>');
 
                 foreach ($this->teamManager->getMrsByTeam($team) as $mr) {
                     $labels = '';
@@ -83,16 +85,20 @@ class NotifyMRsToTeamsCommand extends Command
                             $mr['author']['username'],
                             $labels
                         ),
-                        'color' => ($mr['merge_status'] == 'can_be_merged' ? 'green' : 'red')
+                        'color' => ($mr['merge_status'] === 'can_be_merged' ? 'green' : 'red')
                     ];
 
-                    $output->writeln("<hubside> [" . $projectsGitlab[$mr['project_id']]['name'] . "] - " . $mr['title'] . " </hubside>");
+                    $output->writeln("<mrnotify> [" . $projectsGitlab[$mr['project_id']]['name'] . "] - " . $mr['title'] . " </mrnotify>");
                 }
-                $this->slackNotificationService->sendMessageLoginAsInfo($team->getSlackNotificationPath(), 'Liste des MR de l équipe ' . $team->getName(), $slackMrs);
 
-                $output->writeln('<hubside>------------------------------------</hubside>' . "\n");
+                $this->slackNotificationService->sendMessageLoginAsInfo(
+                    $team->getSlackNotificationPath(),
+                    sprintf(self::WELCOME_MESSAGE, $team->getName()),
+                    $slackMrs
+                );
+
+                $output->writeln('<mrnotify>------------------------------------</mrnotify>' . "\n");
             }
-
         }
 
         return Command::SUCCESS;

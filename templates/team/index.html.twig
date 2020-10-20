@@ -1,40 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Team index{% endblock %}
+{% block title %}BalanceTaMR de la liste des teams{% endblock %}
 
 {% block body %}
-    <h1>Team index</h1>
+    <!-- Work -->
+    <article id="work" class="wrapper style1" style="padding-top: 0.5em">
+        <div class="container">
+            <header>
+                <h2>Liste des équipes</h2>
+                <p>Chaque équipe peut contenir 0 ou n projets</p>
+                <p>Le Board va lister toutes les MR de tous les projets liés à l'équipe.</p>
+            </header>
+            <div class="row aln-center">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th><b>Name</b></th>
+                        <th><b>Email</b></th>
+                        <th><b>Avatar</b></th>
+                        <th><b>actions</b></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for team in teams %}
+                        <tr>
+                            <td>{{ team.name }}</td>
+                            <td>{{ team.email }}</td>
+                            <td><img src="{{ team.avatar }}" style="width: 100px;"></td>
+                            <td>
+                                <a href="{{ path('team_show', {'id': team.id}) }}">show</a>
+                                <a href="{{ path('team_edit', {'id': team.id}) }}">edit</a>
+                                <a href="{{ path('label_index', {'id': team.id}) }}">labels</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Avatar</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for team in teams %}
-            <tr>
-                <td>{{ team.id }}</td>
-                <td>{{ team.name }}</td>
-                <td>{{ team.email }}</td>
-                <td>{{ team.avatar }}</td>
-                <td>
-                    <a href="{{ path('team_show', {'id': team.id}) }}">show</a>
-                    <a href="{{ path('team_edit', {'id': team.id}) }}">edit</a>
-                    <a href="{{ path('label_index', {'id': team.id}) }}">labels</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('team_new') }}">Create new</a>
+            </div>
+            <footer>
+                <a href="{{ path('team_new') }}" class="button large scrolly">Créez une nouvelle équipe</a>
+            </footer>
+        </div>
+    </article>
 {% endblock %}

@@ -1,13 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Team{% endblock %}
+{% block title %}BalanceTaMR de la Team {{ team.name|e }}{% endblock %}
 
 {% block body %}
-    <h1>Edit Team</h1>
+    <!-- Work -->
+    <article id="work" class="wrapper style1" style="padding-top: 0.5em">
+        <div class="container">
+            <header>
+                <h2>Modifiez la Team {{ team.name|e }}</h2>
+                <p>Chaque équipe peut contenir 0 ou n projets</p>
+                <p>Le Board va lister toutes les MR de tous les projets liés à l'équipe.</p>
+            </header>
+            <div class="row aln-center">
+                {{ include('team/_form.html.twig') }}
+            </div>
+            <footer>
+                <a href="{{ path('team_index') }}" class="button large scrolly">Retour</a>
+            </footer>
+        </div>
+    </article>
 
-    {{ include('team/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('team_index') }}">back to list</a>
-
-    {{ include('team/_delete_form.html.twig') }}
 {% endblock %}

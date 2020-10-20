@@ -1,38 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}BalanceTaMR des projets{% endblock %}
 
 {% block body %}
-    <div class="example-wrapper">
-        <h1>Hello {{ controller_name }}! ✅</h1>
+{#    <!-- Home -->#}
+{#    <article id="top" class="wrapper style1">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-4 col-5-large col-12-medium">#}
+{#                    <span class="image fit"><img src="images/pic00.jpg" alt="" /></span>#}
+{#                </div>#}
+{#                <div class="col-8 col-7-large col-12-medium">#}
+{#                    <header>#}
+{#                        <h1>Hi. I'm <strong>Jane Doe</strong>.</h1>#}
+{#                    </header>#}
+{#                    <p>And this is <strong>Miniport</strong>, a free, fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a> &amp; released under the <a href="http://html5up.net/license">CCA license</a>.</p>#}
+{#                    <a href="#work" class="button large scrolly">Learn about what I do</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </article>#}
 
-        <h2>TEAMS</h2>
-
-<div style="display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    padding: 0;">
-        {% for team in teams %}
-            <div class="row" style="width: 16.5% !important;
-    display: block;
-    padding: 4px;
-    margin-bottom: 20px;
-    line-height: 1.42857143;
-    /* background-color: #1c1e22; */
-    /* border: 1px solid #0c0d0e; */
-    border-radius: 4px;
-    -webkit-transition: border .2s ease-in-out;
-    -o-transition: border .2s ease-in-out;
-    transition: border .2s ease-in-out;
-    margin: 13px;">
-                <a href="{{ path('mrs_list_by_team', {'id': team.id}) }}">
-                    <img width="200" src="{% if team.avatar %}{{ team.avatar }}{% else %}https://picsum.photos/200{% endif %}">
-                </a>
-                <h2>{{ team.name|e }}</h2>
+    <!-- Portfolio -->
+    <article id="portfolio" class="wrapper style3" style="padding-top: 1.5em">
+        <div class="container">
+            <header>
+                <h2>Choissez votre équipe</h2>
+                <p>La liste des Merge Request en attente de tous les projets de l'équipe seront alors affichés</p>
+            </header>
+            <div class="row">
+                {% for team in teams %}
+                    <div class="col-4 col-6-medium col-12-small">
+                        <article class="box style2">
+                            <a href="{{ path('mrs_list_by_team', {'id': team.id }) }}" class="image featured">
+                                <img src="{% if team.avatar %}{{ team.avatar }}{% else %}https://picsum.photos/200{% endif %}" alt="" />
+                            </a>
+                            <h3><a href="#">{{ team.name|e }}</a></h3>
+                            <p>{{ team.email|e }}</p>
+                        </article>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-</div>
+            <footer>
+                <p>Vous ne trouvez pas votre équipe ?</p>
+                <a href="{{ path('team_index') }}" class="button large scrolly">Créez en une !</a>
+            </footer>
+        </div>
+    </article>
 
-    </div>
 {% endblock %}

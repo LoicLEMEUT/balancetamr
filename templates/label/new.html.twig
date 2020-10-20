@@ -1,13 +1,26 @@
+
 {% extends 'base.html.twig' %}
 
-{% block title %}New Label{% endblock %}
+{% block title %}New Team{% endblock %}
 
 {% block body %}
-    <h1>Create new Label</h1>
-
-    {{ include('label/_form.html.twig') }}
-
-    <a href="{{ path('label_index', {'id' : team.id}) }}">back to list</a>
+    <!-- Work -->
+    <article id="work" class="wrapper style1" style="padding-top: 0.5em">
+        <div class="container">
+            <header>
+                <h2>Créez un Label pour un Projet de la Team {{ team.name|e }}</h2>
+                <p>Ici, filtrez la liste des MR avec des labels par projets. (Match les MR avec les labels [MODE=OU])</p>
+                <p>Si rien n'est sélectionné, toutes les MR seront affichées</p>
+                <p>Les MR sans labels seront tout le temps affichées</p>
+            </header>
+            <div class="row aln-center">
+                {{ include('label/_form.html.twig') }}
+            </div>
+            <footer>
+                <a href="{{ path('label_index', {'id' : team.id}) }}" class="button large scrolly">Retour</a>
+            </footer>
+        </div>
+    </article>
 
 {% endblock %}
 
@@ -33,6 +46,7 @@
         var data = {};
         data[$sport.attr('name')] = $sport.val();
         // Submit data via AJAX to the form's action path.
+        $('#label_codes').html('<img style="width:50%" src="{{ asset('images/loading.gif') }}">');
         $.ajax({
             url: $form.attr('action'),
             type: $form.attr('method'),

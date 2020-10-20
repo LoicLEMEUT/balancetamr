@@ -26,9 +26,9 @@ class LabelManager
         $this->entityManager = $entityManager;
     }
 
-    public function findByTeam(Team $team): ?Label
+    public function findByTeam(Team $team): array
     {
-        return $this->labelRepository->findOneByTeam($team);
+        return $this->labelRepository->findByTeam($team);
     }
 
     public function findById(int $id): ?Label

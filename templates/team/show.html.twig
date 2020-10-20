@@ -1,38 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Team{% endblock %}
+{% block title %}BalanceTaMR de la Team {{ team.name|e }}{% endblock %}
 
 {% block body %}
-    <h1>Team</h1>
+    <!-- Work -->
+    <article id="work" class="wrapper style1" style="padding-top: 0.5em">
+        <div class="container">
+            <header>
+                <h2>Team {{ team.name|e }}</h2>
+                <p>sdsdsd</p>
+            </header>
+            <div class="row aln-center">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ team.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ team.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Avatar</th>
+                        <td><img src="{{ team.avatar }}" style="width: 150px"> </td>
+                    </tr>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ team.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ team.name }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ team.email }}</td>
-            </tr>
-            <tr>
-                <th>Avatar</th>
-                <td>{{ team.avatar }}</td>
-            </tr>
-            <tr>
-                <th>slackNotificationPath</th>
-                <td>{{ team.slackNotificationPath }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('team_index') }}">back to list</a>
-
-    <a href="{{ path('team_edit', {'id': team.id}) }}">edit</a>
-
-    {{ include('team/_delete_form.html.twig') }}
+                    <tr>
+                        <th>Projets</th>
+                        <td>
+                            {% for project in team.projects %}
+                                <li>{{ formatToGitlabProject(project) }}</li>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>slackNotificationPath</th>
+                        <td>{{ team.slackNotificationPath }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer>
+                <a href="{{ path('team_index') }}" class="button large scrolly">Retour</a>
+                <a href="{{ path('team_edit', {'id': team.id}) }}" class="button large scrolly">Modifier</a>
+                {{ include('team/_delete_form.html.twig') }}
+            </footer>
+        </div>
+    </article>
 {% endblock %}

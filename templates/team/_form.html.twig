@@ -3,8 +3,27 @@
 {{ form_row(form.email) }}
 {{ form_row(form.avatar) }}
 {{ form_row(form.slackNotificationPath) }}
-{{ form_row(form.projects) }}
 
+<b>Projects:</b>
+<table class="table">
+    <thead>
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for projectform in form.projects %}
+        <tr>
+            <td>
+                {{ form_errors(projectform) }}
+                {{ form_widget(projectform) }}
+            </td>
+            <td>{{ form_label(projectform) }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
 <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
