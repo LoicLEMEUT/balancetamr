@@ -3,6 +3,7 @@
 namespace App\Manager;
 
 use App\Entity\Project;
+use App\Entity\Provider;
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -25,7 +26,7 @@ class ProjectManager
         $this->entityManager = $entityManager;
     }
 
-    public function findByExternalId(int $externalId, string $provider): ?Project
+    public function findByExternalId(int $externalId, Provider $provider): ?Project
     {
         return $this->projectRepository->findOneBy(['externalId' => $externalId, 'provider' => $provider]);
     }

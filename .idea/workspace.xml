@@ -3,19 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2be6d520-bd4f-4771-bc9d-a936106d1599" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/NotifyMRsToTeamsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/NotifyMRsToTeamsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manager/LabelManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/LabelManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/label/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/label/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/label/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201019150632.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201019170300.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201019173356.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201019205231.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Project.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mrs/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mrs/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/team/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/team/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/team/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/team/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/team/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +150,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Projects/service-user-v2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -198,7 +191,8 @@
       <workItem from="1603009019739" duration="11894000" />
       <workItem from="1603092476433" duration="87000" />
       <workItem from="1603114280074" duration="22601000" />
-      <workItem from="1603175000506" duration="20858000" />
+      <workItem from="1603175000506" duration="21266000" />
+      <workItem from="1603272386068" duration="1989000" />
     </task>
     <servers />
   </component>
@@ -226,10 +220,11 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="730" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603179977788" />
-    <state x="780" y="297" width="424" height="482" key="FileChooserDialogImpl" timestamp="1603223970212">
-      <screen x="65" y="24" width="1855" height="1056" />
+    <state x="1027" y="390" width="424" height="482" key="FileChooserDialogImpl" timestamp="1603273853201">
+      <screen x="65" y="24" width="2495" height="1416" />
     </state>
     <state x="780" y="297" width="424" height="482" key="FileChooserDialogImpl/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603223970212" />
+    <state x="1027" y="390" key="FileChooserDialogImpl/2560.0.1920.1080/4480.0.2560.1440/65.24.2495.1416@65.24.2495.1416" timestamp="1603273853201" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1603221753759">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>

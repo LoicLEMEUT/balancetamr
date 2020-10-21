@@ -10,9 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=ProjectRepository::class)
  * @ORM\Table(name="project",
- *   uniqueConstraints={
- *     @ORM\UniqueConstraint(name="UK_TYPE_EXTERNAL_ID", columns={"external_id", "provider"}),
- *   }
  * )
  *
  */
@@ -34,11 +31,6 @@ class Project
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=32)
-     */
-    private $provider;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Team::class, mappedBy="projects")
      */
     private $teams;
@@ -47,6 +39,12 @@ class Project
      * @ORM\OneToMany(targetEntity=Label::class, mappedBy="project")
      */
     private $labels;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Provider::class, inversedBy="projects")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $provider;
 
     public function __construct()
     {
@@ -85,18 +83,6 @@ class Project
     public function setName(?string $name): void
     {
         $this->name = $name;
-    }
-
-    public function getProvider(): ?string
-    {
-        return $this->provider;
-    }
-
-    public function setProvider(string $provider): self
-    {
-        $this->provider = $provider;
-
-        return $this;
     }
 
     /**
@@ -154,6 +140,18 @@ class Project
                 $label->setProject(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getProvider(): ?Provider
+    {
+        return $this->provider;
+    }
+
+    public function setProvider(?Provider $provider): self
+    {
+        $this->provider = $provider;
 
         return $this;
     }

@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\DependencyInjection\Compiler\AggregatedTaggedServicesPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -38,11 +37,4 @@ class Kernel extends BaseKernel
         }
     }
 
-    /**
-     * @see \Symfony\Component\HttpKernel\Bundle.Bundle::registerExtensions()
-     */
-    public function build(ContainerBuilder $container)
-    {
-        $container->addCompilerPass(new AggregatedTaggedServicesPass());
-    }
 }

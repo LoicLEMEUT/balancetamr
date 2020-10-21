@@ -53,7 +53,7 @@ class LabelType extends AbstractType
                     'class' => Project::class,
                     'choice_loader' => new ProjectByTeamChoiceLoader($builder->getData(), $this->gitlabService),
                     'choice_label' => function (?Project $project) {
-                        return $project !== null ? '['.$project->getProvider().']'. ' - ' .$project->getName() .' ('.$project->getExternalId().')' : '';
+                        return $project !== null ? '['.$project->getProvider()->getName().']'. ' - ' .$project->getName() .' ('.$project->getExternalId().')' : '';
                     },
                     'choice_value' => function (Project $project) {
                         return $project->getExternalId();
@@ -75,15 +75,15 @@ class LabelType extends AbstractType
 
             if ($data instanceof Label && $data->getId() !== null) {
                 $labels = $this->gitlabService->getLabelsByProject(
-                    $data->getProject()->getExternalId(),
-                    $data->getProject()->getProvider()
+                    $data->getProject()->getProvider(),
+                    $data->getProject()->getExternalId()
                 );
             }
 
             if ($data instanceof Project && $data->getExternalId() !== null) {
                 $labels = $this->gitlabService->getLabelsByProject(
-                    $data->getExternalId(),
-                    $data->getProvider()
+                    $data->getProvider(),
+                    $data->getExternalId()
                 );
             }
 

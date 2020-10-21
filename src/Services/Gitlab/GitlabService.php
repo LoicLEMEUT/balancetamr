@@ -2,7 +2,9 @@
 
 namespace App\Services\Gitlab;
 
-use Exception;
+use App\Client\GitlabClient;
+use App\Entity\Provider;
+use App\Manager\ProviderManager;
 
 class GitlabService
 {
@@ -10,53 +12,59 @@ class GitlabService
      * @var array
      */
     protected $providers = [];
+    /**
+     * @var ProviderManager
+     */
+    private $providerManager;
 
-    public function addProvider(GitlabInterface $provider, $alias)
+    /**
+     * @var GitlabClient
+     */
+    private $gitlabClient;
+
+    /**
+     * GitlabService constructor.
+     * @param ProviderManager $providerManager
+     * @param GitlabClient $gitlabClient
+     */
+    public function __construct(ProviderManager $providerManager, GitlabClient $gitlabClient)
     {
-        $this->providers[$alias] = $provider;
+        $this->providerManager = $providerManager;
+        $this->gitlabClient = $gitlabClient;
     }
 
-    public function getProvider($alias): GitlabInterface
-    {
-        if (array_key_exists($alias, $this->providers)) {
-            return $this->providers[$alias];
-        }
-
-        throw new Exception("Provider '$alias' doesn't exist");
-    }
-
-    public function getProjects(?string $provider = null)
+    public function getProjects(?Provider $provider = null)
     {
         $projects = [];
 
-        if (!empty($provider)) {
-            $projects[$provider] = $this->getProvider($provider)->getProjects();
+        if ($provider !== null) {
+            $projects[$provider->getId()] = $this->gitlabClient->getProjects($provider);
         } else {
-            foreach ($this->providers as $alias => $providerClass) {
-                $projects[$alias] = $providerClass->getProjects();
+            foreach ($this->providerManager->findAll() as $providerList) {
+                $projects[$providerList->getId()] = $this->gitlabClient->getProjects($providerList);
             }
         }
 
         return $projects;
     }
 
-    public function getProjectById(int $id, string $provider)
+    public function getProjectById(Provider $provider, int $id)
     {
-        return $this->getProvider($provider)->getProjectById($id);
+        return $this->gitlabClient->getProjectById($provider, $id);
     }
 
-    public function getMrsByProject(int $id, string $provider, ?array $labels = [])
+    public function getMrsByProject(Provider $provider, int $id, ?array $labels = [])
     {
-        return $this->getProvider($provider)->getMrsByProject($id, $labels);
+        return $this->gitlabClient->getMrsByProject($provider, $id, $labels);
     }
 
-    public function getLabelsByProject(int $id, string $provider)
+    public function getLabelsByProject(Provider $provider, int $id)
     {
-        return $this->getProvider($provider)->getLabelsByProject($id);
+        return $this->gitlabClient->getLabelsByProject($provider, $id);
     }
 
-    public function getLabelByProject(int $id, string $provider, int $idLabel)
+    public function getLabelByProject(Provider $provider, int $id, int $idLabel)
     {
-        return $this->getProvider($provider)->getLabelByProject($id, $idLabel);
+        return $this->gitlabClient->getLabelByProject($provider, $id, $idLabel);
     }
 }

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Provider index{% endblock %}
+
+{% block body %}
+    <h1>Provider index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Url</th>
+                <th>Token</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for provider in providers %}
+            <tr>
+                <td>{{ provider.id }}</td>
+                <td>{{ provider.name }}</td>
+                <td>{{ provider.url }}</td>
+                <td>{{ provider.token }}</td>
+                <td>
+                    <a href="{{ path('provider_show', {'id': provider.id}) }}">show</a>
+                    <a href="{{ path('provider_edit', {'id': provider.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('provider_new') }}">Create new</a>
+{% endblock %}

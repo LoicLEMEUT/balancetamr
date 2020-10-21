@@ -40,7 +40,7 @@ class ProjectByTeamChoiceLoader implements ChoiceLoaderInterface
         $choices = [];
 
         foreach ($this->team->getProjects() as $project) {
-            $project->setName($this->gitlabService->getProjectById($project->getExternalId(), $project->getProvider())['name']);
+            $project->setName($this->gitlabService->getProjectById($project->getProvider(), $project->getExternalId())['name']);
             $choices[$project->getExternalId()] = $project;
         }
 
@@ -54,7 +54,7 @@ class ProjectByTeamChoiceLoader implements ChoiceLoaderInterface
         $i = 0;
         foreach ($this->team->getProjects() as $project) {
             if($i === (int) $values[0]){
-                $project->setName($this->gitlabService->getProjectById($project->getExternalId(), $project->getProvider())['name']);
+                $project->setName($this->gitlabService->getProjectById($project->getProvider(), $project->getExternalId())['name']);
                 $result[] = $project;
             }
 

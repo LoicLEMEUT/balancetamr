@@ -46,9 +46,8 @@ class NotifyMRsToTeamsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // Hubside Template
-        $hubsideStyle = new OutputFormatterStyle('magenta', 'black', array('bold', 'blink'));
-        $output->getFormatter()->setStyle('mrnotify', $hubsideStyle);
+        $outputStyle = new OutputFormatterStyle('magenta', 'black', array('bold', 'blink'));
+        $output->getFormatter()->setStyle('mrnotify', $outputStyle);
 
         $output->writeln("\n" . '<mrnotify>------------------------------------</mrnotify>');
         $output->writeln('<mrnotify>--- MR en attente ----</mrnotify>');

@@ -4,6 +4,7 @@ namespace App\Form\Team;
 
 use App\Entity\Project;
 use App\Manager\ProjectManager;
+use App\Manager\ProviderManager;
 use App\Services\Gitlab\GitlabService;
 use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
 use Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface;
@@ -21,30 +22,38 @@ class ProjectTypeChoiceLoader implements ChoiceLoaderInterface
      * @var ProjectManager
      */
     private $projectManager;
+    /**
+     * @var ProviderManager
+     */
+    private $providerManager;
 
     /**
      * Constructor.
      *
      * @param GitlabService $gitlabService
      * @param ProjectManager $projectManager
+     * @param ProviderManager $providerManager
      */
-    public function __construct(GitlabService $gitlabService, ProjectManager $projectManager)
+    public function __construct(GitlabService $gitlabService, ProjectManager $projectManager, ProviderManager $providerManager)
     {
         $this->gitlabService = $gitlabService;
         $this->projectManager = $projectManager;
+        $this->providerManager = $providerManager;
     }
 
     public function loadChoiceList(callable $value = null)
     {
         $choices = [];
-        foreach ($this->gitlabService->getProjects() as $provider => $gitlabProviders) {
+        foreach ($this->gitlabService->getProjects() as $providerId => $gitlabProviders) {
             foreach ($gitlabProviders as $gitlabProject) {
+                $provider = $this->providerManager->findOneById($providerId);
+
                 $project = new Project();
                 $project->setExternalId($gitlabProject['id']);
                 $project->setName($gitlabProject['name']);
                 $project->setProvider($provider);
 
-                $choices[$project->getExternalId() . $project->getProvider()] = $project;
+                $choices[$project->getExternalId() . $project->getProvider()->getId()] = $project;
             }
         }
 
@@ -77,7 +86,7 @@ class ProjectTypeChoiceLoader implements ChoiceLoaderInterface
 
         /** @var Project $project */
         foreach ($choices as $project) {
-            $result[] = $this->choices->getStructuredValues()[$project->getExternalId() . $project->getProvider()];
+            $result[] = $this->choices->getStructuredValues()[$project->getExternalId() . $project->getProvider()->getId()];
         }
 
         return $result;
