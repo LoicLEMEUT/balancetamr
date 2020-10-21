@@ -3,9 +3,18 @@
 {% block title %}New Provider{% endblock %}
 
 {% block body %}
-    <h1>Create new Provider</h1>
-
-    {{ include('provider/_form.html.twig') }}
-
-    <a href="{{ path('provider_index') }}">back to list</a>
+    <!-- Work -->
+    <article id="work" class="wrapper style1" style="padding-top: 0.5em">
+        <div class="container">
+            <header>
+                <h2>Créez un provider gitlab</h2>
+            </header>
+            <div class="row aln-center">
+                {{ include('provider/_form.html.twig') }}
+            </div>
+            <footer>
+                <a href="{{ path('provider_index') }}" class="button large scrolly">Retour</a>
+            </footer>
+        </div>
+    </article>
 {% endblock %}

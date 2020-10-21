@@ -35,6 +35,7 @@ class GitlabClient
                 $provider->getUrl() . '/api/v4/projects',
                 [
                     'query' => [
+                        'archived' => false,
                         'private_token' => $provider->getToken(),
                         'page' => $page,
                         'per_page' => 100,

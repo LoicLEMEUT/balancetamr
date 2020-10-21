@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2be6d520-bd4f-4771-bc9d-a936106d1599" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201019150632.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201019170300.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201019173356.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201019205231.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mrs/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mrs/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/GitlabClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/GitlabClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/provider/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/provider/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +76,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/symfony/notifier" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-client" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-code" />
       <path value="$PROJECT_DIR$/vendor/symfony/cache" />
@@ -124,22 +119,8 @@
       <path value="$PROJECT_DIR$/vendor/psr/link" />
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/nyholm/psr7" />
-      <path value="$PROJECT_DIR$/vendor/zeichen32/gitlabapibundle" />
-      <path value="$PROJECT_DIR$/vendor/php-http/discovery" />
-      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
-      <path value="$PROJECT_DIR$/vendor/php-http/message-factory" />
-      <path value="$PROJECT_DIR$/vendor/php-http/client-common" />
-      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
-      <path value="$PROJECT_DIR$/vendor/php-http/multipart-stream-builder" />
-      <path value="$PROJECT_DIR$/vendor/php-http/message" />
-      <path value="$PROJECT_DIR$/vendor/clue/stream-filter" />
-      <path value="$PROJECT_DIR$/vendor/php-http/cache-plugin" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
-      <path value="$PROJECT_DIR$/vendor/m4tthumphrey/php-gitlab-api" />
       <path value="$PROJECT_DIR$/vendor/lygav/php-slackbot" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client" />
     </include_path>
   </component>
   <component name="ProjectId" id="1j0GNVd6ICBPIAaGv1fX06DEyCz" />
@@ -150,7 +131,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Projects/service-user-v2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Client" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -164,18 +145,18 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src/Manager" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/Form" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Form/Team" />
       <recent name="$PROJECT_DIR$/src/Form/Label" />
       <recent name="$PROJECT_DIR$/src/Services/Gitlab" />
       <recent name="$PROJECT_DIR$/src/Services/Gitlab/Providers" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Client" />
+      <recent name="$PROJECT_DIR$/src/Manager" />
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -192,7 +173,7 @@
       <workItem from="1603092476433" duration="87000" />
       <workItem from="1603114280074" duration="22601000" />
       <workItem from="1603175000506" duration="21266000" />
-      <workItem from="1603272386068" duration="1989000" />
+      <workItem from="1603272386068" duration="10453000" />
     </task>
     <servers />
   </component>
@@ -204,10 +185,11 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="684" y="342" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1602933958839" />
-    <state x="786" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1603134240175">
-      <screen x="65" y="24" width="1855" height="1056" />
+    <state x="1035" y="287" key="#com.intellij.ide.util.MemberChooser" timestamp="1603280458112">
+      <screen x="65" y="24" width="2495" height="1416" />
     </state>
     <state x="786" y="220" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603134240175" />
+    <state x="1035" y="287" key="#com.intellij.ide.util.MemberChooser/2560.0.1920.1080/4480.0.2560.1440/65.24.2495.1416@65.24.2495.1416" timestamp="1603280458112" />
     <state x="680" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603020908439">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -216,15 +198,16 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="517" y="24" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603138773836" />
-    <state x="730" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603179977788">
-      <screen x="65" y="24" width="1855" height="1056" />
+    <state x="959" y="390" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603281366999">
+      <screen x="65" y="24" width="2495" height="1416" />
     </state>
     <state x="730" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603179977788" />
-    <state x="1027" y="390" width="424" height="482" key="FileChooserDialogImpl" timestamp="1603273853201">
+    <state x="959" y="390" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/4480.0.2560.1440/65.24.2495.1416@65.24.2495.1416" timestamp="1603281366999" />
+    <state x="1027" y="390" width="424" height="482" key="FileChooserDialogImpl" timestamp="1603280192298">
       <screen x="65" y="24" width="2495" height="1416" />
     </state>
     <state x="780" y="297" width="424" height="482" key="FileChooserDialogImpl/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603223970212" />
-    <state x="1027" y="390" key="FileChooserDialogImpl/2560.0.1920.1080/4480.0.2560.1440/65.24.2495.1416@65.24.2495.1416" timestamp="1603273853201" />
+    <state x="1027" y="390" key="FileChooserDialogImpl/2560.0.1920.1080/4480.0.2560.1440/65.24.2495.1416@65.24.2495.1416" timestamp="1603280192298" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1603221753759">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -233,10 +216,11 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="165" y="96" width="1655" height="884" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603120352783" />
-    <state x="683" y="277" width="898" height="651" key="find.popup" timestamp="1603131535646">
+    <state x="713" y="272" width="898" height="651" key="find.popup" timestamp="1603290100448">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="683" y="277" width="898" height="651" key="find.popup/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603131535646" />
+    <state x="713" y="272" width="898" height="651" key="find.popup/2560.0.1920.1080/4480.0.2560.1440/65.24.1855.1056@65.24.1855.1056" timestamp="1603290100448" />
     <state x="656" y="246" key="run.anything.popup" timestamp="1603221732322">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>

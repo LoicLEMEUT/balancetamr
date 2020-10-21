@@ -3,32 +3,41 @@
 {% block title %}Provider{% endblock %}
 
 {% block body %}
-    <h1>Provider</h1>
+    <!-- Work -->
+    <article id="work" class="wrapper style1" style="padding-top: 0.5em">
+        <div class="container">
+            <header>
+                <h2>Provider {{ provider.name }}</h2>
+            </header>
+            <div class="row aln-center">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ provider.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ provider.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Url</th>
+                        <td>{{ provider.url }}</td>
+                    </tr>
+                    <tr>
+                        <th>Token</th>
+                        <td>{{ provider.token }}</td>
+                    </tr>
+                    </tbody>
+                </table>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ provider.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ provider.name }}</td>
-            </tr>
-            <tr>
-                <th>Url</th>
-                <td>{{ provider.url }}</td>
-            </tr>
-            <tr>
-                <th>Token</th>
-                <td>{{ provider.token }}</td>
-            </tr>
-        </tbody>
-    </table>
+            </div>
+            <footer>
+                <a href="{{ path('provider_index') }}" class="button large scrolly">Retour</a>
+                <a href="{{ path('provider_edit', {'id': provider.id}) }}" class="button large scrolly">Modifier</a>
+                {{ include('provider/_delete_form.html.twig') }}
 
-    <a href="{{ path('provider_index') }}">back to list</a>
-
-    <a href="{{ path('provider_edit', {'id': provider.id}) }}">edit</a>
-
-    {{ include('provider/_delete_form.html.twig') }}
+            </footer>
+        </div>
+    </article>
 {% endblock %}
