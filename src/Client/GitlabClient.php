@@ -2,6 +2,7 @@
 
 namespace App\Client;
 
+use App\Entity\Label;
 use App\Entity\Provider;
 use App\Manager\ProviderManager;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -63,7 +64,18 @@ class GitlabClient
         )->toArray();
     }
 
-    public function getMrsByProject(Provider $provider, int $id, ?array $labels = [])
+    /**
+     * @param Provider $provider
+     * @param int $id
+     * @param Label|null $label
+     * @return array
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     */
+    public function getMrsByProject(Provider $provider, int $id, ?Label $label = null)
     {
         $mrs = [];
 
@@ -86,18 +98,28 @@ class GitlabClient
             )->toArray();
 
             // Filter Labels request in mode OR (Gitlab apply only mode AND).
-            if (!empty($labels)) {
+            if ($label !== null) {
                 foreach ($mrsCurrent as $key => $mr) {
                     if (!empty($mr['labels'])) {
                         $hasLabel = false;
                         foreach ($mr['labels'] as $mrLabel) {
-                            if (in_array($mrLabel['id'], $labels, true)) {
+                            if (in_array($mrLabel['id'], $label->getCodes(), true)) {
                                 $hasLabel = true;
                                 break;
                             }
                         }
-                        if (!$hasLabel) {
-                            unset($mrsCurrent[$key]);
+
+                        // If inclusion is TRUE.
+                        if ($label->getInclusion() === true) {
+                            // If we don't found label, remove it.
+                            if (!$hasLabel) {
+                                unset($mrsCurrent[$key]);
+                            }
+                        } else {
+                            // If we found Label, remove it.
+                            if ($hasLabel) {
+                                unset($mrsCurrent[$key]);
+                            }
                         }
                     }
                 }

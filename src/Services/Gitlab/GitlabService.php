@@ -3,6 +3,7 @@
 namespace App\Services\Gitlab;
 
 use App\Client\GitlabClient;
+use App\Entity\Label;
 use App\Entity\Provider;
 use App\Manager\ProviderManager;
 
@@ -53,9 +54,9 @@ class GitlabService
         return $this->gitlabClient->getProjectById($provider, $id);
     }
 
-    public function getMrsByProject(Provider $provider, int $id, ?array $labels = [])
+    public function getMrsByProject(Provider $provider, int $id, ?Label $label = null)
     {
-        return $this->gitlabClient->getMrsByProject($provider, $id, $labels);
+        return $this->gitlabClient->getMrsByProject($provider, $id, $label);
     }
 
     public function getLabelsByProject(Provider $provider, int $id)

@@ -55,14 +55,14 @@ class TeamManager
         $listOfMrs = [];
 
         foreach ($team->getLabels() as $label){
-            $listOfLabels[$label->getProject()->getExternalId()] = $label->getCodes();
+            $listOfLabels[$label->getProject()->getExternalId()] = $label;
         }
 
         foreach ($team->getProjects() as $project){
             $mrs = $this->gitlabService->getMrsByProject(
                 $project->getProvider(),
                 $project->getExternalId(),
-                ($listOfLabels[$project->getExternalId()] ?? [])
+                ($listOfLabels[$project->getExternalId()] ?? null)
             );
             foreach ($mrs as $projectMr){
                 $listOfMrs[] = $projectMr;

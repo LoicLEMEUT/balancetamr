@@ -18,6 +18,7 @@
                     <tr>
                         <th><b>Team</b></th>
                         <th><b>Project</b></th>
+                        <th><b>Inclusion ?</b></th>
                         <th><b>Code</b></th>
                         <th><b>actions</b></th>
                     </tr>
@@ -27,6 +28,7 @@
                         <tr>
                             <td>{{ label.team.name }}</td>
                             <td>{{ formatToGitlabProject(label.project) }}</td>
+                            <td>{{ label.inclusion }}</td>
                             <td>
                                 {% for label in formatToGitlabLabel(label) %}
                                     <span style="padding:2px; background-color: {{ label.color }}">{{ label.name }}</span>

@@ -40,6 +40,11 @@ class Label
      */
     private $codes = [];
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $inclusion = true;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +82,18 @@ class Label
     public function setCodes(array $codes): self
     {
         $this->codes = $codes;
+
+        return $this;
+    }
+
+    public function getInclusion(): ?bool
+    {
+        return $this->inclusion;
+    }
+
+    public function setInclusion(bool $inclusion): self
+    {
+        $this->inclusion = $inclusion;
 
         return $this;
     }
