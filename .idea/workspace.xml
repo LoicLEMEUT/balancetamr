@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2be6d520-bd4f-4771-bc9d-a936106d1599" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/GitlabClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/GitlabClient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Label.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Label.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/Label/LabelType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Label/LabelType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Label/ProjectByTeamChoiceLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Label/ProjectByTeamChoiceLoader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Manager/TeamManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/TeamManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/Gitlab/GitlabService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Gitlab/GitlabService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/label/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mrs/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mrs/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Extension/GitlabExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Extension/GitlabExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/label/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/_form.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +178,7 @@
       <workItem from="1603114280074" duration="22601000" />
       <workItem from="1603175000506" duration="21266000" />
       <workItem from="1603272386068" duration="11813000" />
-      <workItem from="1603350558211" duration="2145000" />
+      <workItem from="1603350558211" duration="6251000" />
     </task>
     <servers />
   </component>
@@ -191,10 +190,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="684" y="342" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1602933958839" />
-    <state x="1035" y="287" key="#com.intellij.ide.util.MemberChooser" timestamp="1603280458112">
-      <screen x="65" y="24" width="2495" height="1416" />
+    <state x="786" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1603362189781">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="786" y="220" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603134240175" />
+    <state x="786" y="220" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603362189781" />
     <state x="1035" y="287" key="#com.intellij.ide.util.MemberChooser/2560.0.1920.1080/4480.0.2560.1440/65.24.2495.1416@65.24.2495.1416" timestamp="1603280458112" />
     <state x="680" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603020908439">
       <screen x="65" y="24" width="1855" height="1056" />
@@ -222,10 +221,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="165" y="96" width="1655" height="884" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603120352783" />
-    <state x="713" y="272" width="898" height="651" key="find.popup" timestamp="1603290100448">
+    <state x="683" y="277" width="898" height="651" key="find.popup" timestamp="1603360565100">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="683" y="277" width="898" height="651" key="find.popup/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603131535646" />
+    <state x="683" y="277" width="898" height="651" key="find.popup/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603360565100" />
     <state x="713" y="272" width="898" height="651" key="find.popup/2560.0.1920.1080/4480.0.2560.1440/65.24.1855.1056@65.24.1855.1056" timestamp="1603290100448" />
     <state x="656" y="246" key="run.anything.popup" timestamp="1603221732322">
       <screen x="65" y="24" width="1855" height="1056" />

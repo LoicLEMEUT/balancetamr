@@ -1,4 +1,47 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.team) }}
+    {{ form_row(form.project) }}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {{ form_errors(form.inclusion) }}
+                {{ form_widget(form.inclusion) }}
+            </td>
+            <td>{{ form_label(form.inclusion) }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="label_codes">
+    <b>Labels:</b>
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for child in form.codes %}
+            <tr>
+                <td>
+                    {{ form_errors(child) }}
+                    {{ form_widget(child) }}
+                </td>
+                <td>{{ form_label(child) }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

@@ -64,7 +64,6 @@ class LabelType extends AbstractType
                         'disabled' => $options['edit'],
                     ],
                     'required' => true,
-
                 ]
             )
             ->add('inclusion',
@@ -82,17 +81,11 @@ class LabelType extends AbstractType
             $labels = null;
 
             if ($data instanceof Label && $data->getId() !== null) {
-                $labels = $this->gitlabService->getLabelsByProject(
-                    $data->getProject()->getProvider(),
-                    $data->getProject()->getExternalId()
-                );
+                $labels = $this->gitlabService->getLabelsByProject($data->getProject());
             }
 
             if ($data instanceof Project && $data->getExternalId() !== null) {
-                $labels = $this->gitlabService->getLabelsByProject(
-                    $data->getProvider(),
-                    $data->getExternalId()
-                );
+                $labels = $this->gitlabService->getLabelsByProject($data);
             }
 
             if (!empty($labels)) {

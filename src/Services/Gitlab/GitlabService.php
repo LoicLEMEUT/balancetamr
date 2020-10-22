@@ -4,6 +4,7 @@ namespace App\Services\Gitlab;
 
 use App\Client\GitlabClient;
 use App\Entity\Label;
+use App\Entity\Project;
 use App\Entity\Provider;
 use App\Manager\ProviderManager;
 
@@ -49,23 +50,23 @@ class GitlabService
         return $projects;
     }
 
-    public function getProjectById(Provider $provider, int $id)
+    public function getProjectById(Project $project)
     {
-        return $this->gitlabClient->getProjectById($provider, $id);
+        return $this->gitlabClient->getProjectById($project->getProvider(), $project->getExternalId());
     }
 
-    public function getMrsByProject(Provider $provider, int $id, ?Label $label = null)
+    public function getMrsByProject(Project $project, ?Label $label = null)
     {
-        return $this->gitlabClient->getMrsByProject($provider, $id, $label);
+        return $this->gitlabClient->getMrsByProject($project->getProvider(), $project->getExternalId(), $label);
     }
 
-    public function getLabelsByProject(Provider $provider, int $id)
+    public function getLabelsByProject(Project $project)
     {
-        return $this->gitlabClient->getLabelsByProject($provider, $id);
+        return $this->gitlabClient->getLabelsByProject($project->getProvider(), $project->getExternalId());
     }
 
-    public function getLabelByProject(Provider $provider, int $id, int $idLabel)
+    public function getLabelByProject(Project $project, int $idLabel)
     {
-        return $this->gitlabClient->getLabelByProject($provider, $id, $idLabel);
+        return $this->gitlabClient->getLabelByProject($project->getProvider(), $project->getExternalId(), $idLabel);
     }
 }

@@ -3,16 +3,15 @@
 namespace App\Form\Label;
 
 use App\Entity\Label;
+use App\Entity\Project;
 use App\Entity\Team;
+use App\Manager\ProjectManager;
 use App\Services\Gitlab\GitlabService;
 use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
 use Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface;
 
 class ProjectByTeamChoiceLoader implements ChoiceLoaderInterface
 {
-    /** @var array */
-    protected $choices;
-
     /**
      * @var Team
      */
@@ -21,7 +20,6 @@ class ProjectByTeamChoiceLoader implements ChoiceLoaderInterface
      * @var GitlabService
      */
     private $gitlabService;
-
 
     /**
      * Constructor.
@@ -40,7 +38,7 @@ class ProjectByTeamChoiceLoader implements ChoiceLoaderInterface
         $choices = [];
 
         foreach ($this->team->getProjects() as $project) {
-            $project->setName($this->gitlabService->getProjectById($project->getProvider(), $project->getExternalId())['name']);
+            $project->setName($this->gitlabService->getProjectById($project)['name']);
             $choices[$project->getExternalId()] = $project;
         }
 
@@ -49,12 +47,12 @@ class ProjectByTeamChoiceLoader implements ChoiceLoaderInterface
 
     public function loadChoicesForValues(array $values, callable $value = null)
     {
-        $result = [ ];
+        $result = [];
 
         $i = 0;
         foreach ($this->team->getProjects() as $project) {
-            if($i === (int) $values[0]){
-                $project->setName($this->gitlabService->getProjectById($project->getProvider(), $project->getExternalId())['name']);
+            if ($i === (int)$values[0]) {
+                $project->setName($this->gitlabService->getProjectById($project)['name']);
                 $result[] = $project;
             }
 
@@ -66,6 +64,16 @@ class ProjectByTeamChoiceLoader implements ChoiceLoaderInterface
 
     public function loadValuesForChoices(array $choices, callable $value = null)
     {
-        return [];
+        $result = [];
+
+        $i = 0;
+        foreach ($this->team->getProjects() as $teamProject) {
+            if ($choices[0]->getId() === $teamProject->getId()) {
+                $result[] = $i;
+            }
+            $i++;
+        }
+
+        return $result;
     }
 }

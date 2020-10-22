@@ -60,8 +60,7 @@ class TeamManager
 
         foreach ($team->getProjects() as $project){
             $mrs = $this->gitlabService->getMrsByProject(
-                $project->getProvider(),
-                $project->getExternalId(),
+                $project,
                 ($listOfLabels[$project->getExternalId()] ?? null)
             );
             foreach ($mrs as $projectMr){
@@ -76,7 +75,7 @@ class TeamManager
     {
         $listOfProject = [];
         foreach ($team->getProjects() as $project){
-            $gitlabProject = $this->gitlabService->getProjectById($project->getProvider(), $project->getExternalId());
+            $gitlabProject = $this->gitlabService->getProjectById($project);
             $listOfProject[$project->getExternalId()] = $gitlabProject;
         }
         return $listOfProject;
@@ -86,7 +85,7 @@ class TeamManager
     {
         $listOfLabels = [];
         foreach ($team->getProjects() as $project){
-            foreach ($this->gitlabService->getLabelsByProject($project->getExternalId(), $project->getProvider()) as $label){
+            foreach ($this->gitlabService->getLabelsByProject($project) as $label){
                 $listOfLabels[$label['name']] = $label;
             }
         }

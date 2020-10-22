@@ -31,7 +31,7 @@ class GitlabExtension extends AbstractExtension
 
     public function formatToGitlabProject(Project $project)
     {
-        $gitlabProject = $this->gitlabService->getProjectById($project->getProvider(), $project->getExternalId());
+        $gitlabProject = $this->gitlabService->getProjectById($project);
         return '[' . $project->getProvider()->getName() . '] ' . $gitlabProject['name'] . ' (' . $gitlabProject['id'] . ')';
     }
 
@@ -39,11 +39,7 @@ class GitlabExtension extends AbstractExtension
     {
         $labels = [];
         foreach ($label->getCodes() as $id){
-            $labels[] = $this->gitlabService->getLabelByProject(
-                $label->getProject()->getProvider(),
-                $label->getProject()->getExternalId(),
-                $id
-            );
+            $labels[] = $this->gitlabService->getLabelByProject($label->getProject(), $id);
         }
         return $labels;
     }
