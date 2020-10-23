@@ -10,6 +10,9 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 class GitlabClient
 {
 
+    public const DEFAULT_PAGE = 1;
+    public const DEFAULT_PER_PAGE = 100;
+
     /**
      * @var HttpClientInterface
      */
@@ -29,7 +32,7 @@ class GitlabClient
         $projects = [];
 
         // Variants.
-        $page = 1;
+        $page = self::DEFAULT_PAGE;
         do {
             $projectsCurrent = $this->client->request(
                 'GET',
@@ -39,7 +42,7 @@ class GitlabClient
                         'archived' => false,
                         'private_token' => $provider->getToken(),
                         'page' => $page,
-                        'per_page' => 100,
+                        'per_page' => self::DEFAULT_PER_PAGE,
                     ]
                 ]
             )->toArray();
@@ -79,7 +82,7 @@ class GitlabClient
     {
         $mrs = [];
 
-        $page = 1;
+        $page = self::DEFAULT_PAGE;
         do {
             $mrsCurrent = $this->client->request(
                 'GET',
@@ -89,7 +92,7 @@ class GitlabClient
                         'private_token' => $provider->getToken(),
                         'scope' => 'all',
                         'state' => 'opened',
-                        'per_page' => 100,
+                        'per_page' => self::DEFAULT_PER_PAGE,
                         'page' => $page,
                         'wip' => 'no',
                         'with_labels_details' => true,

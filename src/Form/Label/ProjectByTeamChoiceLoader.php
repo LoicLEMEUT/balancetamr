@@ -67,11 +67,13 @@ class ProjectByTeamChoiceLoader implements ChoiceLoaderInterface
         $result = [];
 
         $i = 0;
-        foreach ($this->team->getProjects() as $teamProject) {
-            if ($choices[0]->getId() === $teamProject->getId()) {
-                $result[] = $i;
+        if(isset($choices) && !empty($choices[0])){
+            foreach ($this->team->getProjects() as $teamProject) {
+                if ($choices[0]->getId() === $teamProject->getId()) {
+                    $result[] = $i;
+                }
+                $i++;
             }
-            $i++;
         }
 
         return $result;
