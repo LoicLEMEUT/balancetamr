@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2be6d520-bd4f-4771-bc9d-a936106d1599" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/GitlabClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/GitlabClient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Command/NotifyMRsToTeamsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/NotifyMRsToTeamsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manager/TeamManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/TeamManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/label/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/label/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/label/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/label/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/label/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mrs/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mrs/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/provider/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/provider/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/provider/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/provider/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/provider/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/team/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/team/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/team/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/team/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/team/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/team/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/translations/messages.fr.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +176,7 @@
       <workItem from="1603350558211" duration="19526000" />
       <workItem from="1603701024582" duration="8940000" />
       <workItem from="1603807306502" duration="54000" />
-      <workItem from="1604323250285" duration="1730000" />
+      <workItem from="1604323250285" duration="2069000" />
     </task>
     <servers />
   </component>

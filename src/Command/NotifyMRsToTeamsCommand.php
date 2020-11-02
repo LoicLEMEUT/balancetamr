@@ -10,11 +10,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class NotifyMRsToTeamsCommand extends Command
 {
-    public const WELCOME_MESSAGE = "Liste des MergeRequests en attente de l'équipe: %s";
-
     protected static $defaultName = 'notify:mrs-to-teams';
 
     /**
@@ -25,15 +24,27 @@ class NotifyMRsToTeamsCommand extends Command
      * @var SlackNotificationService
      */
     private $slackNotificationService;
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
 
     /**
      * NotifyMRsToTeamsCommand constructor.
+     * @param TeamManager $teamManager
+     * @param SlackNotificationService $slackNotificationService
+     * @param TranslatorInterface $translator
      */
-    public function __construct(TeamManager $teamManager, SlackNotificationService $slackNotificationService)
+    public function __construct(
+        TeamManager $teamManager,
+        SlackNotificationService $slackNotificationService,
+        TranslatorInterface $translator
+    )
     {
         parent::__construct();
         $this->teamManager = $teamManager;
         $this->slackNotificationService = $slackNotificationService;
+        $this->translator = $translator;
     }
 
 
@@ -49,8 +60,9 @@ class NotifyMRsToTeamsCommand extends Command
         $outputStyle = new OutputFormatterStyle('magenta', 'black', array('bold', 'blink'));
         $output->getFormatter()->setStyle('mrnotify', $outputStyle);
 
-        $output->writeln("\n" . '<mrnotify>------------------------------------</mrnotify>');
-        $output->writeln('<mrnotify>--- MR en attente ----</mrnotify>');
+        $output->writeln("\n");
+        $output->writeln('<mrnotify>------------------------------------</mrnotify>');
+        $output->writeln('<mrnotify>--- ' . $this->translator->trans('mr.title') . ' ----</mrnotify>');
         $output->writeln('<mrnotify>------------------------------------</mrnotify>');
 
 
@@ -59,7 +71,8 @@ class NotifyMRsToTeamsCommand extends Command
                 $slackMrs = [];
                 $projectsGitlab = $this->teamManager->getProjectsByTeam($team);
 
-                $output->writeln("\n" . '<mrnotify>-------- TEAM ' . $team->getName() . '------</mrnotify>');
+                $output->writeln("\n");
+                $output->writeln('<mrnotify>-------- ' . $this->translator->trans('team.title', ['team_name' => $team->getName()]) . '------</mrnotify>');
 
                 foreach ($this->teamManager->getMrsByTeam($team) as $mr) {
                     $labels = '';
@@ -72,13 +85,15 @@ class NotifyMRsToTeamsCommand extends Command
                         $labels = str_replace(',)', ')', $labels);
                     }
 
+                    $projectName = $projectsGitlab[$mr['balancetamr_provider_id']][$mr['project_id']]['name'];
+
                     $slackMrs[] = [
                         'text' => sprintf(
                             '(*%s* 👍 | *%s* 👎 | *%s* 💬) [%s] <%s|%s> (<@%s>) %s',
                             $mr['upvotes'],
                             $mr['downvotes'],
                             $mr['user_notes_count'],
-                            $projectsGitlab[$mr['balancetamr_provider_id']][$mr['project_id']]['name'],
+                            $projectName,
                             $mr['web_url'],
                             substr($mr['title'], 0, 10) . '...',
                             $mr['author']['username'],
@@ -87,16 +102,17 @@ class NotifyMRsToTeamsCommand extends Command
                         'color' => ($mr['merge_status'] === 'can_be_merged' ? 'green' : 'red')
                     ];
 
-                    $output->writeln("<mrnotify> [" . $projectsGitlab[$mr['balancetamr_provider_id']][$mr['project_id']]['name'] . "] - " . $mr['title'] . " </mrnotify>");
+                    $output->writeln("<mrnotify> [" . $projectName . "] - " . $mr['title'] . " </mrnotify>");
                 }
 
                 $this->slackNotificationService->sendMessageLoginAsInfo(
                     $team->getSlackNotificationPath(),
-                    sprintf(self::WELCOME_MESSAGE, $team->getName()),
+                    $this->translator->trans('mr.slack_title', ['team_name' => $team->getName()]),
                     $slackMrs
                 );
 
-                $output->writeln('<mrnotify>------------------------------------</mrnotify>' . "\n");
+                $output->writeln('<mrnotify>------------------------------------</mrnotify>');
+                $output->writeln("\n");
             }
         }
 

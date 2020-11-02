@@ -7,6 +7,8 @@ action:
 error:
   no_records: Aucun résultat trouvé.
 mr:
+  title: Liste des MR en attente
+  slack_title: Liste des MergeRequests en attente de l'équipe %team_name%
   description: La liste des Merge Request en attente de tous les projets de l'équipe seront alors affichés
 team:
   title: Team %team_name%
