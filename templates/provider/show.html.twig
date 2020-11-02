@@ -1,31 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Provider{% endblock %}
+{% block title %}{{ "provider.labels.label" | trans | capitalize }}{% endblock %}
 
 {% block body %}
     <!-- Work -->
     <article id="work" class="wrapper style1" style="padding-top: 0.5em">
         <div class="container">
             <header>
-                <h2>Provider {{ provider.name }}</h2>
+                <h2>{{ "provider.labels.label" | trans | capitalize }} {{ provider.name }}</h2>
             </header>
             <div class="row aln-center">
                 <table class="table">
                     <tbody>
                     <tr>
-                        <th>Id</th>
+                        <th>{{ "provider.field.id" | trans | capitalize }}</th>
                         <td>{{ provider.id }}</td>
                     </tr>
                     <tr>
-                        <th>Name</th>
+                        <th>{{ "provider.field.name" | trans | capitalize }}</th>
                         <td>{{ provider.name }}</td>
                     </tr>
                     <tr>
-                        <th>Url</th>
+                        <th>{{ "provider.field.url" | trans | capitalize }}</th>
                         <td>{{ provider.url }}</td>
                     </tr>
                     <tr>
-                        <th>Token</th>
+                        <th>{{ "provider.field.token" | trans | capitalize }}</th>
                         <td>{{ provider.token }}</td>
                     </tr>
                     </tbody>
@@ -33,8 +33,8 @@
 
             </div>
             <footer>
-                <a href="{{ path('provider_index') }}" class="button large scrolly">Retour</a>
-                <a href="{{ path('provider_edit', {'id': provider.id}) }}" class="button large scrolly">Modifier</a>
+                <a href="{{ path('provider_index') }}" class="button large scrolly">{{ "action.back" | trans | capitalize }}</a>
+                <a href="{{ path('provider_edit', {'id': provider.id}) }}" class="button large scrolly">{{ "action.update" | trans | capitalize }}</a>
                 {{ include('provider/_delete_form.html.twig') }}
 
             </footer>

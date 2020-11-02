@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}BalanceTaMR de la Team {{ team.name|e }}{% endblock %}
+{% block title %}{{ "team.title" | trans | capitalize }} {{ team.name|e }}{% endblock %}
 {% block meta %}
     <meta http-equiv="refresh" content="360">{% endblock %}
 
@@ -10,7 +10,7 @@
     <article id="work" class="wrapper style2" style="padding-top: 0.5em">
         <div>
             <header>
-                <h2>Team {{ team.name|e }}</h2>
+                <h2>{{ "team.labels.label" | trans | capitalize }} {{ team.name|e }}</h2>
             </header>
             <div class="row aln-center">
                 {% for mr in mrs %}
@@ -32,7 +32,7 @@
                                     <image width="80%" height="80%" xlink:href="{{ mr.author.avatar_url }}"
                                            style="clip-path: circle(50%);" alt="{{ mr.author.name }}"></image>
                                 </svg>
-                                <h3>{{ projects[mr.project_id].name }}</h3>
+                                <h3>{{ projects[mr.balancetamr_provider_id][mr.project_id].name }}</h3>
                                 <p style="color: black; margin-bottom: 0.5em;">{{ mr.title|slice(0, 30) }}...</p>
                                 <p style="margin-bottom: 0.5em;">{{ mr.author.name }}</p>
                                 <div class="caption text-center"
@@ -55,9 +55,9 @@
                 {% endfor %}
             </div>
             <footer>
-                <p>Il manque des projets ?</p>
-                <a href="{{ path('team_edit', {'id': team.id}) }}" class="button large scrolly">Configurez votre
-                    équipe</a>
+                <p>{{ "team.messages.missing_project" | trans | capitalize }}</p>
+                <a href="{{ path('team_edit', {'id': team.id}) }}"
+                   class="button large scrolly">{{ "team.action.config" | trans | capitalize }}</a>
             </footer>
         </div>
     </article>

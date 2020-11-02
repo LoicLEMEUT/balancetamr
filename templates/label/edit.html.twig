@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}BalanceTaMR des Labels de la Team {{ team.name|e }}{% endblock %}
+{% block title %}{{ "label.action.update" | trans({'provider_name' : team.name}) | capitalize }}{% endblock %}
 
 {% block body %}
     <!-- Work -->
     <article id="work" class="wrapper style1" style="padding-top: 0.5em">
         <div class="container">
             <header>
-                <h2>Labels de la Team {{ team.name|e }}</h2>
-                <p>Ici, filtrez la liste des MR avec des labels par projets. (Match les MR avec les labels [MODE=OU])</p>
-                <p>Si rien n'est sélectionné, toutes les MR seront affichées</p>
-                <p>Les MR sans labels seront tout le temps affichées</p>
+                <h2>{{ "label.action.update" | trans({'provider_name' : team.name}) | capitalize }}</h2>
+                <p>{{ "label.messages.content_1" | trans | capitalize }}</p>
+                <p>{{ "label.messages.content_2" | trans | capitalize }}</p>
+                <p>{{ "label.messages.content_3" | trans | capitalize }}</p>
             </header>
             <div class="row aln-center">
                 {{ include('label/_form.html.twig', {'button_label': 'Update'}) }}
             </div>
             <footer>
-                <a href="{{ path('label_index', {'id' : team.id}) }}">Retour</a>
+                <a href="{{ path('label_index', {'id' : team.id}) }}">{{ "action.back" | trans | capitalize }}</a>
 
                 {{ include('label/_delete_form.html.twig') }}
             </footer>

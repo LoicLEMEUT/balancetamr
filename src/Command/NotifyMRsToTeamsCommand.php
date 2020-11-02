@@ -78,7 +78,7 @@ class NotifyMRsToTeamsCommand extends Command
                             $mr['upvotes'],
                             $mr['downvotes'],
                             $mr['user_notes_count'],
-                            $projectsGitlab[$mr['project_id']]['name'],
+                            $projectsGitlab[$mr['balancetamr_provider_id']][$mr['project_id']]['name'],
                             $mr['web_url'],
                             substr($mr['title'], 0, 10) . '...',
                             $mr['author']['username'],
@@ -87,7 +87,7 @@ class NotifyMRsToTeamsCommand extends Command
                         'color' => ($mr['merge_status'] === 'can_be_merged' ? 'green' : 'red')
                     ];
 
-                    $output->writeln("<mrnotify> [" . $projectsGitlab[$mr['project_id']]['name'] . "] - " . $mr['title'] . " </mrnotify>");
+                    $output->writeln("<mrnotify> [" . $projectsGitlab[$mr['balancetamr_provider_id']][$mr['project_id']]['name'] . "] - " . $mr['title'] . " </mrnotify>");
                 }
 
                 $this->slackNotificationService->sendMessageLoginAsInfo(

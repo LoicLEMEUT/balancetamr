@@ -2,10 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2be6d520-bd4f-4771-bc9d-a936106d1599" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/.env.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/GitlabClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/GitlabClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/NotifyMRsToTeamsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/NotifyMRsToTeamsCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager/TeamManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/TeamManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/label/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/label/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/label/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/label/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/label/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/label/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mrs/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mrs/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/provider/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/provider/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/provider/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/provider/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/provider/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/provider/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/team/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/team/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/team/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/team/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/team/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/team/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +152,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Projects/service-user-v2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -146,19 +166,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/.docker/database" />
-      <recent name="$PROJECT_DIR$/.docker" />
-      <recent name="$PROJECT_DIR$/.docker/php-fpm" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/Client" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Form/Team" />
       <recent name="$PROJECT_DIR$/src/Form/Label" />
       <recent name="$PROJECT_DIR$/src/Services/Gitlab" />
       <recent name="$PROJECT_DIR$/src/Services/Gitlab/Providers" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/translations" />
+      <recent name="$PROJECT_DIR$/.docker/database" />
+      <recent name="$PROJECT_DIR$/.docker" />
+      <recent name="$PROJECT_DIR$/.docker/php-fpm" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -176,6 +196,9 @@
       <workItem from="1603175000506" duration="21266000" />
       <workItem from="1603272386068" duration="11813000" />
       <workItem from="1603350558211" duration="19526000" />
+      <workItem from="1603701024582" duration="8940000" />
+      <workItem from="1603807306502" duration="54000" />
+      <workItem from="1604323250285" duration="1730000" />
     </task>
     <servers />
   </component>
@@ -205,10 +228,10 @@
     </state>
     <state x="730" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603179977788" />
     <state x="959" y="390" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/4480.0.2560.1440/65.24.2495.1416@65.24.2495.1416" timestamp="1603281366999" />
-    <state x="780" y="297" width="424" height="482" key="FileChooserDialogImpl" timestamp="1603440514938">
+    <state x="780" y="297" width="424" height="482" key="FileChooserDialogImpl" timestamp="1603723597584">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="780" y="297" width="424" height="482" key="FileChooserDialogImpl/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603440514938" />
+    <state x="780" y="297" width="424" height="482" key="FileChooserDialogImpl/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603723597584" />
     <state x="1027" y="390" key="FileChooserDialogImpl/2560.0.1920.1080/4480.0.2560.1440/65.24.2495.1416@65.24.2495.1416" timestamp="1603280192298" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1603373664151">
       <screen x="65" y="24" width="1855" height="1056" />
@@ -218,15 +241,19 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="165" y="96" width="1655" height="884" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603120352783" />
-    <state x="683" y="277" width="898" height="651" key="find.popup" timestamp="1603360565100">
+    <state x="683" y="277" width="898" height="651" key="find.popup" timestamp="1604323781751">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="683" y="277" width="898" height="651" key="find.popup/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603360565100" />
+    <state x="683" y="277" width="898" height="651" key="find.popup/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1604323781751" />
     <state x="713" y="272" width="898" height="651" key="find.popup/2560.0.1920.1080/4480.0.2560.1440/65.24.1855.1056@65.24.1855.1056" timestamp="1603290100448" />
     <state x="656" y="246" key="run.anything.popup" timestamp="1603221732322">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="656" y="246" key="run.anything.popup/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603221732322" />
+    <state x="655" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1603730919509">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="655" y="236" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/65.24.1855.1056@65.24.1855.1056" timestamp="1603730919509" />
     <state x="722" y="453" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1603374111284">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>

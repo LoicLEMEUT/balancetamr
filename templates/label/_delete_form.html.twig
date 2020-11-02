@@ -1,5 +1,5 @@
-<form method="post" action="{{ path('label_delete', {'id': team.id, 'idLabel': label.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+<form method="post" action="{{ path('label_delete', {'id': team.id, 'idLabel': label.id}) }}" onsubmit="return confirm({{ "label.action.delete" | trans | capitalize }});">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ label.id) }}">
-    <button class="btn">Delete</button>
+    <button class="btn">{{ "action.delete" | trans | capitalize }}</button>
 </form>

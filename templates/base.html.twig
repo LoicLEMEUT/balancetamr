@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}{{ "balancetamr.label" | trans | capitalize }}{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     {% block meta %}{% endblock %}
@@ -16,9 +16,9 @@
 <!-- Nav -->
 <nav id="nav">
     <ul class="container">
-        <li><a href="{{ path('home') }}">Home</a></li>
-        <li><a href="{{ path('team_index') }}">Teams</a></li>
-        <li><a href="{{ path('provider_index') }}">Providers</a></li>
+        <li><a href="{{ path('home') }}">{{ "nav.home" | trans | capitalize }}</a></li>
+        <li><a href="{{ path('team_index') }}">{{ "team.labels.labels" | trans | capitalize }}</a></li>
+        <li><a href="{{ path('provider_index') }}">{{ "provider.labels.labels" | trans | capitalize }}</a></li>
     </ul>
 </nav>
 

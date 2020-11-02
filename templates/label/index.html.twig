@@ -1,26 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}BalanceTaMR des labels de la team {{ team.name|e }}{% endblock %}
+{% block title %}{{ "label.action.list" | trans | capitalize }}{% endblock %}
 
 {% block body %}
     <!-- Work -->
     <article id="work" class="wrapper style1" style="padding-top: 0.5em">
         <div class="container">
             <header>
-                <h2>Liste des Labels</h2>
-                <p>Ici, filtrez la liste des MR avec des labels par projets. (Match les MR avec les labels [MODE=OU])</p>
-                <p>Si rien n'est sélectionné, toutes les MR seront affichées</p>
-                <p>Les MR sans labels seront tout le temps affichées</p>
+                <h2>{{ "label.action.list" | trans | capitalize }}</h2>
+                <p>{{ "label.messages.content_1" | trans | capitalize }}</p>
+                <p>{{ "label.messages.content_2" | trans | capitalize }}</p>
+                <p>{{ "label.messages.content_3" | trans | capitalize }}</p>
             </header>
             <div class="row aln-center">
                 <table class="table">
                     <thead>
                     <tr>
-                        <th><b>Team</b></th>
-                        <th><b>Project</b></th>
-                        <th><b>Inclusion ?</b></th>
-                        <th><b>Code</b></th>
-                        <th><b>actions</b></th>
+                        <th><b>{{ "team.labels.label" | trans | capitalize }}</b></th>
+                        <th><b>{{ "project.labels.label" | trans | capitalize }}</b></th>
+                        <th><b>{{ "label.field.inclusion" | trans | capitalize }}</b></th>
+                        <th><b>{{ "label.field.code" | trans | capitalize }}</b></th>
+                        <th><b>{{ "action.actions" | trans | capitalize }}</b></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,14 +35,14 @@
                                 {% endfor %}
                             </td>
                             <td>
-                                <a href="{{ path('label_edit', {'id': team.id, 'idLabel': label.id}) }}">edit</a>
+                                <a href="{{ path('label_edit', {'id': team.id, 'idLabel': label.id}) }}">{{ "action.update" | trans | capitalize }}</a>
 
                                 {{ include('label/_delete_form.html.twig') }}
                             </td>
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="3">no records found</td>
+                            <td colspan="3">{{ "error.no_records" | trans | capitalize }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -50,7 +50,7 @@
 
             </div>
             <footer>
-                <a href="{{ path('label_new', {'id': team.id}) }}" class="button large scrolly">Ajouter un label</a>
+                <a href="{{ path('label_new', {'id': team.id}) }}" class="button large scrolly">{{ "label.action.create" | trans | capitalize }}</a>
             </footer>
         </div>
     </article>

@@ -1,23 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Provider index{% endblock %}
+{% block title %}{{ "provider.labels.labels" | trans | capitalize }}{% endblock %}
 
 {% block body %}
     <!-- Work -->
     <article id="work" class="wrapper style1" style="padding-top: 0.5em">
         <div class="container">
             <header>
-                <h2>Providers</h2>
+                <h2>{{ "provider.labels.labels" | trans | capitalize }}</h2>
             </header>
             <div class="row aln-center">
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Url</th>
-                        <th>Token</th>
-                        <th>actions</th>
+                        <th><b>{{ "provider.field.id" | trans | capitalize }}</b></th>
+                        <th><b>{{ "provider.field.name" | trans | capitalize }}</b></th>
+                        <th><b>{{ "provider.field.url" | trans | capitalize }}</b></th>
+                        <th><b>{{ "provider.field.token" | trans | capitalize }}</b></th>
+                        <th><b>{{ "action.actions" | trans | capitalize }}</b></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -28,20 +28,20 @@
                             <td>{{ provider.url }}</td>
                             <td>{{ provider.token }}</td>
                             <td>
-                                <a href="{{ path('provider_show', {'id': provider.id}) }}">show</a>
-                                <a href="{{ path('provider_edit', {'id': provider.id}) }}">edit</a>
+                                <a href="{{ path('provider_show', {'id': provider.id}) }}">{{ "action.show" | trans | capitalize }}</a>
+                                <a href="{{ path('provider_edit', {'id': provider.id}) }}">{{ "action.update" | trans | capitalize }}</a>
                             </td>
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="5">no records found</td>
+                            <td colspan="5">{{ "error.no_records" | trans | capitalize }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
             <footer>
-                <a href="{{ path('provider_new') }}"  class="button large scrolly">Create new</a>
+                <a href="{{ path('provider_new') }}"  class="button large scrolly">{{ "provider.action.create" | trans | capitalize }}</a>
             </footer>
         </div>
     </article>

@@ -31,7 +31,8 @@ class TeamManager
         $this->entityManager = $entityManager;
     }
 
-    public function getAllTeams(){
+    public function getAllTeams()
+    {
         return $this->teamRepository->findAll();
     }
 
@@ -54,16 +55,17 @@ class TeamManager
         $listOfLabels = [];
         $listOfMrs = [];
 
-        foreach ($team->getLabels() as $label){
+        foreach ($team->getLabels() as $label) {
             $listOfLabels[$label->getProject()->getExternalId()] = $label;
         }
 
-        foreach ($team->getProjects() as $project){
+        foreach ($team->getProjects() as $project) {
             $mrs = $this->gitlabService->getMrsByProject(
                 $project,
                 ($listOfLabels[$project->getExternalId()] ?? null)
             );
-            foreach ($mrs as $projectMr){
+            foreach ($mrs as $projectMr) {
+                $projectMr['balancetamr_provider_id'] = $project->getProvider()->getId();
                 $listOfMrs[] = $projectMr;
             }
         }
@@ -74,9 +76,9 @@ class TeamManager
     public function getProjectsByTeam(Team $team): array
     {
         $listOfProject = [];
-        foreach ($team->getProjects() as $project){
+        foreach ($team->getProjects() as $project) {
             $gitlabProject = $this->gitlabService->getProjectById($project);
-            $listOfProject[$project->getExternalId()] = $gitlabProject;
+            $listOfProject[$project->getProvider()->getId()][$project->getExternalId()] = $gitlabProject;
         }
         return $listOfProject;
     }
@@ -84,8 +86,8 @@ class TeamManager
     public function getLabelsByTeam(Team $team): array
     {
         $listOfLabels = [];
-        foreach ($team->getProjects() as $project){
-            foreach ($this->gitlabService->getLabelsByProject($project) as $label){
+        foreach ($team->getProjects() as $project) {
+            foreach ($this->gitlabService->getLabelsByProject($project) as $label) {
                 $listOfLabels[$label['name']] = $label;
             }
         }

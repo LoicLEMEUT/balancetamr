@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Team{% endblock %}
+{% block title %}{{ "team.action.create" | trans | capitalize }}{% endblock %}
 
 {% block body %}
     <!-- Work -->
     <article id="work" class="wrapper style1" style="padding-top: 0.5em">
         <div class="container">
             <header>
-                <h2>Ajoutez une équipe</h2>
-                <p>Chaque équipe peut contenir 0 ou n projets</p>
-                <p>Le Board va lister toutes les MR de tous les projets liés à l'équipe.</p>
+                <h2>{{ "team.action.list" | trans | capitalize }}</h2>
+                <p>{{ "team.messages.content_1" | trans | capitalize }}</p>
+                <p>{{ "team.messages.content_2" | trans | capitalize }}</p>
             </header>
             <div class="row aln-center">
                 {{ include('team/_form.html.twig') }}
             </div>
             <footer>
-                <a href="{{ path('team_index') }}" class="button large scrolly">Retour</a>
+                <a href="{{ path('team_index') }}" class="button large scrolly">{{ "action.back" | trans | capitalize }}</a>
             </footer>
         </div>
     </article>

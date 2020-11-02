@@ -1,24 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}BalanceTaMR de la liste des teams{% endblock %}
+{% block title %}{{ "team.action.list" | trans | capitalize }}{% endblock %}
 
 {% block body %}
     <!-- Work -->
     <article id="work" class="wrapper style1" style="padding-top: 0.5em">
         <div class="container">
             <header>
-                <h2>Liste des équipes</h2>
-                <p>Chaque équipe peut contenir 0 ou n projets</p>
-                <p>Le Board va lister toutes les MR de tous les projets liés à l'équipe.</p>
+                <p>{{ "team.action.list" | trans | capitalize }}</p>
+                <p>{{ "team.messages.content_1" | trans | capitalize }}</p>
+                <p>{{ "team.messages.content_2" | trans | capitalize }}</p>
             </header>
             <div class="row aln-center">
                 <table class="table">
                     <thead>
                     <tr>
-                        <th><b>Name</b></th>
-                        <th><b>Email</b></th>
-                        <th><b>Avatar</b></th>
-                        <th><b>actions</b></th>
+                        <th><b>{{ "team.field.name" | trans | capitalize }}</b></th>
+                        <th><b>{{ "team.field.email" | trans | capitalize }}</b></th>
+                        <th><b>{{ "team.field.avatar" | trans | capitalize }}</b></th>
+                        <th><b>{{ "action.actions" | trans | capitalize }}</b></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -28,14 +28,14 @@
                             <td>{{ team.email }}</td>
                             <td><img src="{{ team.avatar }}" style="width: 100px;"></td>
                             <td>
-                                <a href="{{ path('team_show', {'id': team.id}) }}">show</a>
-                                <a href="{{ path('team_edit', {'id': team.id}) }}">edit</a>
-                                <a href="{{ path('label_index', {'id': team.id}) }}">labels</a>
+                                <a href="{{ path('team_show', {'id': team.id}) }}">{{ "action.show" | trans | capitalize }}</a>
+                                <a href="{{ path('team_edit', {'id': team.id}) }}">{{ "action.update" | trans | capitalize }}</a>
+                                <a href="{{ path('label_index', {'id': team.id}) }}">{{ "label.labels.labels" | trans | capitalize }}</a>
                             </td>
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="5">no records found</td>
+                            <td colspan="5">{{ "error.no_records" | trans | capitalize }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -43,7 +43,7 @@
 
             </div>
             <footer>
-                <a href="{{ path('team_new') }}" class="button large scrolly">Créez une nouvelle équipe</a>
+                <a href="{{ path('team_new') }}" class="button large scrolly">{{ "team.action.create" | trans | capitalize }}</a>
             </footer>
         </div>
     </article>

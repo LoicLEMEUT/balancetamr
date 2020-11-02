@@ -4,7 +4,6 @@ namespace App\Client;
 
 use App\Entity\Label;
 use App\Entity\Provider;
-use App\Manager\ProviderManager;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class GitlabClient

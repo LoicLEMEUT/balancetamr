@@ -1,21 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}BalanceTaMR de la Team {{ team.name|e }}{% endblock %}
+{% block title %}{{ "team.title" | trans({'%team_name%': team.name}) | capitalize }}{% endblock %}
 
 {% block body %}
     <!-- Work -->
     <article id="work" class="wrapper style1" style="padding-top: 0.5em">
         <div class="container">
             <header>
-                <h2>Modifiez la Team {{ team.name|e }}</h2>
-                <p>Chaque équipe peut contenir 0 ou n projets</p>
-                <p>Le Board va lister toutes les MR de tous les projets liés à l'équipe.</p>
+                <p>{{ "team.action.update" | trans({'%team_name%': team.name}) | capitalize }}</p>
+                <p>{{ "team.messages.content_1" | trans | capitalize }}</p>
+                <p>{{ "team.messages.content_2" | trans | capitalize }}</p>
             </header>
             <div class="row aln-center">
                 {{ include('team/_form.html.twig') }}
             </div>
             <footer>
-                <a href="{{ path('team_index') }}" class="button large scrolly">Retour</a>
+                <a href="{{ path('team_index') }}"
+                   class="button large scrolly">{{ "action.back" | trans | capitalize }}</a>
             </footer>
         </div>
     </article>

@@ -1,33 +1,34 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}BalanceTaMR de la Team {{ team.name|e }}{% endblock %}
+{% block title %}{{ "team.title" | trans({'%team_name%': team.name}) | capitalize }}{% endblock %}
 
 {% block body %}
     <!-- Work -->
     <article id="work" class="wrapper style1" style="padding-top: 0.5em">
         <div class="container">
             <header>
-                <h2>Team {{ team.name|e }}</h2>
-                <p>sdsdsd</p>
+                <h2>{{ "team.title" | trans({'%team_name%': team.name}) | capitalize }}</h2>
+                <p>{{ "team.messages.content_1" | trans | capitalize }}</p>
+                <p>{{ "team.messages.content_2" | trans | capitalize }}</p>
             </header>
             <div class="row aln-center">
                 <table class="table">
                     <tbody>
                     <tr>
-                        <th>Name</th>
+                        <th>{{ "team.field.name" | trans | capitalize }}</th>
                         <td>{{ team.name }}</td>
                     </tr>
                     <tr>
-                        <th>Email</th>
+                        <th>{{ "team.field.email" | trans | capitalize }}</th>
                         <td>{{ team.email }}</td>
                     </tr>
                     <tr>
-                        <th>Avatar</th>
+                        <th>{{ "team.field.avatar" | trans | capitalize }}</th>
                         <td><img src="{{ team.avatar }}" style="width: 150px"> </td>
                     </tr>
 
                     <tr>
-                        <th>Projets</th>
+                        <th>{{ "project.labels.labels" | trans | capitalize }}</th>
                         <td>
                             {% for project in team.projects %}
                                 <li>{{ formatToGitlabProject(project) }}</li>
@@ -35,15 +36,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>slackNotificationPath</th>
+                        <th>{{ "team.field.slackNotificationPath" | trans | capitalize }}</th>
                         <td>{{ team.slackNotificationPath }}</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <footer>
-                <a href="{{ path('team_index') }}" class="button large scrolly">Retour</a>
-                <a href="{{ path('team_edit', {'id': team.id}) }}" class="button large scrolly">Modifier</a>
+                <a href="{{ path('team_index') }}" class="button large scrolly">{{ "action.back" | trans | capitalize }}</a>
+                <a href="{{ path('team_edit', {'id': team.id}) }}" class="button large scrolly">{{ "action.update" | trans | capitalize }}</a>
                 {{ include('team/_delete_form.html.twig') }}
             </footer>
         </div>

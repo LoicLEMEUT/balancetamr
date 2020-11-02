@@ -1,0 +1,72 @@
+action:
+  update: modifier
+  back: retour
+  delete: supprimer
+  show: voir
+  actions: actions
+error:
+  no_records: Aucun résultat trouvé.
+mr:
+  description: La liste des Merge Request en attente de tous les projets de l'équipe seront alors affichés
+team:
+  title: Team %team_name%
+  messages:
+    choose_team: Choissez votre équipe
+    missing_project: Il manque des projets ?
+    missing_team: Vous ne trouvez pas votre équipe ?
+    content_1: Chaque équipe peut contenir 0 ou n projets
+    content_2: Le Board va lister toutes les MR de tous les projets liés à l'équipe.
+  labels:
+    label: équipe
+    labels: équipes
+  action:
+    list: listez les équipes
+    update: modifiez l'équipe %team_name%
+    create: créez votre nouvelle équipe
+    config: configurez votre équipe
+    delete: êtes-vous sûr de vouloir supprimer cette équipe ?
+  field:
+    name: nom
+    email: email
+    avatar: avatar
+    slackNotificationPath: Webhook Slack de notification
+provider:
+  labels:
+    label: provider
+    labels: providers
+  field:
+    id: id
+    name: nom
+    url: url
+    token: token
+  action:
+    list: listez les providers
+    update: modifiez le provider %provider_name%
+    create: créez votre nouveaux provider
+    config: configurez votre provider
+    delete: êtes-vous sûr de vouloir supprimer ce provider ?
+project:
+  labels:
+    label: project
+    labels: projets
+label:
+  labels:
+    label: label
+    labels: labels
+  messages:
+    content_1: Ici, filtrez la liste des MR avec des labels par projets. (Match les MR avec les labels [MODE=OU])
+    content_2: Si rien n'est sélectionné, toutes les MR seront affichées
+    content_3: Les MR sans labels seront tout le temps affichées
+  field:
+    inclusion: inclusion
+    code: code
+  action:
+    list: listez les labels
+    update: modifiez le label %provider_name%
+    create: créez votre nouveaux label
+    config: configurez votre label
+    delete: êtes-vous sûr de vouloir supprimer ce label ?
+nav:
+  home: Home
+balancetamr:
+  label: BalanceTaMR
