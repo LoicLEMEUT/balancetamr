@@ -107,7 +107,7 @@ class NotifyMRsToTeamsCommand extends Command
 
                 $this->slackNotificationService->sendMessageLoginAsInfo(
                     $team->getSlackNotificationPath(),
-                    $this->translator->trans('mr.slack_title', ['team_name' => $team->getName()]),
+                    $this->translator->trans('mr.slack_title', ['%team_name%' => $team->getName()]),
                     $slackMrs
                 );
 

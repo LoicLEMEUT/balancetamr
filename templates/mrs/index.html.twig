@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ "team.title" | trans | capitalize }} {{ team.name|e }}{% endblock %}
+{% block title %}{{ "team.title" | trans({'%team_name%': team.name|e}) | capitalize }} {% endblock %}
 {% block meta %}
     <meta http-equiv="refresh" content="360">{% endblock %}
 
