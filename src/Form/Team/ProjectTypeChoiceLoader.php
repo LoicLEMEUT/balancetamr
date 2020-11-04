@@ -86,7 +86,9 @@ class ProjectTypeChoiceLoader implements ChoiceLoaderInterface
 
         /** @var Project $project */
         foreach ($choices as $project) {
-            $result[] = $this->choices->getStructuredValues()[$project->getExternalId() . $project->getProvider()->getId()];
+            if(isset($this->choices->getStructuredValues()[$project->getExternalId() . $project->getProvider()->getId()])){
+                $result[] = $this->choices->getStructuredValues()[$project->getExternalId() . $project->getProvider()->getId()];
+            }
         }
 
         return $result;
