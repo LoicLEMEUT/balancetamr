@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ "provider.action.update" | trans({'provider_name': provider.name}) | capitalize }}{% endblock %}
+{% block title %}{{ "provider.action.update" | trans({'%provider_name%': provider.name}) | capitalize }}{% endblock %}
 
 {% block body %}
     <!-- Work -->
     <article id="work" class="wrapper style1" style="padding-top: 0.5em">
         <div class="container">
             <header>
-                <h2>{{ "provider.action.update" | trans({'provider_name': provider.name}) | capitalize }}</h2>
+                <h2>{{ "provider.action.update" | trans({'%provider_name%': provider.name}) | capitalize }}</h2>
             </header>
             <div class="row aln-center">
                 {{ include('provider/_form.html.twig', {'button_label': 'Update'}) }}

@@ -63,6 +63,7 @@ class ProviderController extends AbstractController
      */
     public function edit(Request $request, Provider $provider): Response
     {
+        $provider->setToken('');
         $form = $this->createForm(ProviderType::class, $provider);
         $form->handleRequest($request);
 
